@@ -3,6 +3,7 @@ class Negociacao {
     this._data = data;
     this._quantidade = quantidade
     this._valor = valor;
+    Object.freeze(this); //congela a instancia e nao consegue alterar os dados
   }
 
   get volume() {
@@ -13,7 +14,7 @@ class Negociacao {
     return this._quantidade;
   }
   get data(){
-    return this._data
+    return new Date(this._data.getTime())
   }
 
   get valor(){
